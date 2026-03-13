@@ -214,7 +214,7 @@ int main() {
 
     printf("Seja bem-vindo!\n\n");
 
-    while (opcao != 7) {
+       while (opcao != 7) {
 
         printf("1 - Cadastrar cliente\n");
         printf("2 - Listar clientes\n");
@@ -229,27 +229,34 @@ int main() {
 
         printf("\n");
 
-        if (opcao == 1)
+        switch (opcao)
+        {
+        case 1:
             cadastrarCliente(clientes, &totalClientes);
-
-        if (opcao == 2)
+            /* code */
+            break;
+        case 2: 
             listarClientes(clientes, totalClientes);
-
-        if (opcao == 3)
+            break;
+        case 3:
             buscarCliente(clientes, totalClientes);
-
-        if (opcao == 4)
+            break;
+        case 4: 
             editarCliente(clientes, totalClientes);
-
-        if (opcao == 5)
+            break;
+        case 5:
             removerCliente(clientes, &totalClientes);
-
-        if (opcao == 6)
+            break;
+        case 6:
             estatisticas(clientes, totalClientes);
-
-        if (opcao < 1 || opcao > 7)
-            printf("Opcao invalida!\n\n");
-    }
-
+            break;
+        case 7:
+        printf("Saindo do sistema...\n");
+            break;
+        default:
+        printf("Opcao invalida! Tente novamente.\n\n");
+            break;
+        }
+    } 
     return 0;
 }
